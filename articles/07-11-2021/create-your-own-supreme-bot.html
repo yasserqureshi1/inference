@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/favicon.ico">
+	<link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Inference - Create your own Supreme Bot</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="../../assets/css/main.css" rel="stylesheet" />
+	<link href="../../assets/css/article.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+		<div class="container">
+			<!-- Title -->
+			<a class="navbar-brand" href="../../index.html"><strong>Inference</strong></a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+				aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Navbar menu -->
+			<div class="navbar-collapse collapse" id="navbarColor02">
+				<!-- Menu items -->
+				<ul class="navbar-nav mr-auto d-flex align-items-center">
+					<li class="nav-item">
+						<a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../pages/about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../pages/articles.html">All Articles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/yasserqureshi1">GitHub</a>
+					</li>
+				</ul>
+
+				<!-- Right menu item -->
+				<!--
+				<ul class="navbar-nav ml-auto d-flex align-items-center">
+					<li class="nav-item highlight">
+						<a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get
+							this Theme</a>
+					</li>
+				</ul>
+				-->
+			</div>
+		</div>
+	</nav>
+
+	<!-- Article Header -->
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+			<div class="h-100 tofront">
+				<div class="row justify-content-between">
+					<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+						<!-- Article topic area -->
+						<p class="text-uppercase font-weight-bold">
+							<a class="text-danger">Stories</a>
+						</p>
+						<!-- Article Title-->
+						<h1 class="display-4 secondfont mb-3 font-weight-bold">
+							Create your own Supreme Bot
+						</h1>
+						<!-- Article Subtitle -->
+						<p class="mb-3">
+							Within this article, we will build a basic Supreme bot in Python! You shouldn't 
+						need any prior coding experience but please note that I won't be describing each 
+						process in depth. So if you do have any questions about what I'm doing, feel free to 
+						drop a comment.
+						</p>
+						<!-- Article date and read time -->
+						<div class="d-flex align-items-center">
+							<small class="ml-2">
+								<span class="text-muted d-block">
+									7 Nov 2021 &middot; 6 min read
+								</span>
+							</small>
+						</div>
+					</div>
+
+					<!-- Article image -->
+					<div class="col-md-6 pr-0">
+						<img src="imgs/1_sup_page.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container pt-4 pb-4">
+		<div class="row justify-content-center">
+			<!-- Share Article -->
+			<div class="col-lg-2 pr-4 mb-4 col-md-12">
+				<div class="sticky-top text-center">
+					<div class="text-muted">
+						Share this
+					</div>
+					<div class="share d-inline-block">
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+							<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+							<a class="a2a_button_facebook"></a>
+							<a class="a2a_button_twitter"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+					</div>
+				</div>
+			</div>
+
+			<!-- Article Content -->
+			<div class="col-md-12 col-lg-8">
+				<article class="article-post">
+					<p>
+						Aside from this article, there is a YouTube tutorial you can follow which 
+						you can find below. Similarly, if you only want the source code, you can find 
+						it <a href="https://github.com/yasserqureshi1/supreme-bot">here</a>.
+						<br><br>
+						Please join my Discord server <a href="https://discord.com/invite/D8kfJ4pt3m">'Sneakers and Code'</a> where you can join a 
+						community of over 800 members that discuss everything sneakers, code and 
+						everything in-between!
+					</p>
+					<p style="text-align:center">
+						<iframe width="500" height="315"
+							src="https://www.youtube.com/embed/nVpmYoloLuA">
+						</iframe>
+					</p>
+
+					<h4><strong>
+						Contents
+					</strong></h4>
+					<ol>
+						<li>
+							Plan
+						</li>
+						<li>
+							Development
+						</li>
+						<li>
+							Testing
+						</li>
+						<li>
+							Improvements
+						</li>
+					</ol>
+
+					<br>
+					<h4><strong>
+						Plan
+					</strong></h4>
+					<p>
+						Before developing the bot, we should work out what the bot will do. Let's have a 
+						look at the Supreme site to work out the steps the bot has to take.
+						<br><br>
+						When we attempt to purchase an item, we perform the following steps:
+						<br><br>
+						<i>
+							STEP 1: Find the item on the site
+						</i>
+						<br>
+						<img src="imgs/1_sup_page.png">
+						<br>
+						<i>
+							STEP 2: Choose the colour and the size
+						</i>
+						<br>
+						<img src="imgs/2_sup_product.png">
+						<br>
+						<i>
+							STEP 3: Go to checkout and fill in form
+						</i>
+						<br>
+						<img src="imgs/3_sup_checkout.png">
+					</p>
+
+					<h4><strong>
+						Development
+					</strong></h4>
+					<p>
+						Having understood the stages, let's now describe the structure of the bot. 
+						We will have two files, one that will store the variables such as user details 
+						and the item details, and another is the bot.
+
+						<br><br>
+
+						Below are the files that we will be using.
+
+						<pre><code class="code-block">> mySupremeBot
+	> bot.py
+	> config.py</code></pre>
+						
+						The <code>config.py</code> file should include the following. This contains variables that are 
+						likely to change. A description of each of the variables can be found <a href="https://github.com/yasserqureshi1/supreme-bot/blob/master/README.md">here</a>.
+						<br><br>
+						<pre><code class="code-block">class DriverOptions:
+	CHROME_DRIVER_PATH = ""
+class ProductDetails:
+	KEYWORDS = ""
+	COLOUR = ""
+	SIZE = ""
+
+class UserDetails:
+	NAME = ""
+	EMAIL = ""
+	TELE = ""
+	ADDRESS_1 = ""
+	ADDRESS_2 = ""
+	ADDRESS_3 = ""
+	CITY = ""
+	POSTCODE = ""
+
+class PaymentDetails:
+	CARD_NUMBER = ""
+	CVV = ""
+	CARD_TYPE = "Credit Card"
+	EXP_MONTH = ""              # Two digit month (i.e. January is "01")
+	EXP_YEAR = ""               # Four digit year (2020)</code></pre>
+
+						The rest of the code in this article should be written in the <code>bot.py</code> 
+						file.
+
+						<br><br>
+						
+						<h6><strong>
+							STEP 1: Find the item on the site
+						</strong></h6>	
+
+						If we were to buy an item manually, we would find the item using the site 
+						displayed in the previous section. We could make the bot parse this site, 
+						but a better way would be to find an API or structured data of the products.
+
+						<br><br>
+
+						If you use the Developer Tools on your browser, you can watch the Networks tab 
+						to view requests made when you try to access a site. When we do this for Supreme 
+						whilst emulating a mobile device, you will see loads of different scripts, images 
+						and other documents being requested. But if you look closely, you might find the 
+						following site: https://www.supremenewyork.com/mobile_stock.json. This site returns 
+						JSON file containing all the products on the Supreme store.
+						
+						<br>
+						<img src="imgs/4_sup_json.png">
+						
+						We use Python's <code>requests</code> module to perform the GET requests to the site. You 
+						can install it using:
+						
+						<br><br>
+
+						<pre><code class="code-block">pip3 install requests</code></pre>
+
+						We want to use the mobile version of the site as it is usually easier to parse, 
+						but in this case, it provides the necessary information that we want. So we 
+						introduce <code>headers</code> that describe the device we are using to make the request.
+						<br><br>
+						<pre><code class="code-block">headers = {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}</code></pre>
+						
+						The function below makes a request to the site, parses the JSON document and 
+						returns the product ID of the item we are looking for. We use the built in Python 
+						module <code>json</code> to handle the JSON payload.
+						<br><br>
+						<pre><code class="code-block">import requests
+import json
+headers = {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}
+session = requests.Session()
+
+def find_item_id(name):
+	url = 'https://www.supremenewyork.com/mobile_stock.json'
+	html = session.get(url=url, headers=headers, timeout=10)
+	output = json.loads(html.text)     
+	for category in output['products_and_categories']:
+	for item in output['products_and_categories'][category]:
+		if name in item['name']:
+		print(item['name'])
+		print(item['id'])
+		return item['id']</code></pre>
+						
+						<h6><strong>
+							STEP 2: Choose the size and colour
+						</strong></h6>
+						Using the product ID, we can make a request to the specific product JSON document. 
+						This page has more detailed information on the colours and sizes. The URL looks 
+						like: <code>https://www.supremenewyork.com/shop/&lt;product ID&gt;.json</code>
+						
+						<br>
+						<img src="imgs/5_sup_prod_json.png">
+
+						The function below parses the JSON document, searches for the specific colour 
+						and size, then returns the products colour ID.
+
+						<pre><code class="code-block">def find_item(product_id, colour, size):
+	url = 'https://www.supremenewyork.com/shop/' + str(product_id) + '.json'
+	html = session.get(url=url, headers=headers, timeout=10)
+	output = json.loads(html.text)
+	for product_colours in output['styles']:
+		if colour in product_colours['name']:
+		for product_size in product_colours['sizes']:
+			if size in product_size['name']:
+				return product_colours['id']</code></pre>
+
+						Using the colour ID, we can make a request to the product site and use browser 
+						automation to choose the size and add the item to basket. We use <code>selenium</code> to 
+						perform the browser automation. You may need to download a Chrome Driver 
+						(you can find Chrome Drivers here) so that selenium can automate a 
+						Chrome instance.
+
+						<br><br>
+
+						You can install selenium using the command:
+						<br><br>
+						<pre><code class="code-block">pip3 install selenium</code></pre>
+
+						The function below opens a Chrome instance and requests the product site. It 
+						then waits until the `size-options` element is loaded, so that we can select 
+						the site we want. We then select the size from the dropdown menu and add 
+						to basket.
+						<br><br>
+						<pre><code class="code-block">from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+
+mobile_emulation = {"deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},"userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) " "Version/13.0.3 Mobile/15E148 Safari/604.1"}
+
+prefs = {'disk-cache-size': 4096}
+
+options = Options()
+options.add_experimental_option("mobileEmulation", mobile_emulation)
+options.add_experimental_option('prefs', prefs)
+options.add_experimental_option("useAutomationExtension", False)
+
+driver = webdriver.Chrome(options=options, executable_path=DriverOptions.CHROME_DRIVER_PATH)
+wait = WebDriverWait(driver, 10)
+
+def get_product(product_id, product_colour_id, size):
+	url = 'https://www.supremenewyork.com/mobile/#products/' + str(product_id) + '/' + str(product_colour_id)
+	driver.get(url)
+	wait.until(EC.presence_of_element_located((By.ID, 'size-options')))
+	options = Select(driver.find_element_by_id('size-options'))
+	options.select_by_visible_text(size)
+	driver.find_element_by_xpath("//*[@id='cart-update']/span").click()</code></pre>
+						
+						<img src="imgs/6_sup_pants.png">
+
+						<h6><strong>
+							STAGE 3: Go to checkout and fill in form
+						</strong></h6>
+
+						Again, we use selenium to perform the browser automation, as well as a small bit 
+						of JavaScript to add our user details to the checkout form. The function below 
+						performs those tasks, then clicks the submit button.
+						<br><br>
+						<pre><code class="code-block">def checkout():
+	driver.get('https://www.supremenewyork.com/mobile/#checkout')
+
+	wait.until(EC.presence_of_element_located((By.ID, 'order_billing_name')))
+	driver.execute_script(
+		f'document.getElementById("order_billing_name").value="{UserDetails.NAME}";'
+		f'document.getElementById("order_email").value="{UserDetails.EMAIL}";'
+		f'document.getElementById("order_tel").value="{UserDetails.TELE}";'
+		f'document.getElementById("order_billing_address").value="{UserDetails.ADDRESS_1}";'
+		f'document.getElementById("order_billing_address").value="{UserDetails.ADDRESS_2}";'
+		f'document.getElementById("order_billing_address_3").value="{UserDetails.ADDRESS_3}";'
+		f'document.getElementById("order_billing_city").value="{UserDetails.CITY}";'
+		f'document.getElementById("order_billing_zip").value="{UserDetails.POSTCODE}";'
+		f'document.getElementById("credit_card_number").value="{PaymentDetails.CARD_NUMBER}";'
+		f'document.getElementById("credit_card_cvv").value="{PaymentDetails.CVV}";'
+	)
+	card_type = Select(driver.find_element_by_id('credit_card_type'))
+	card_type.select_by_visible_text(PaymentDetails.CARD_TYPE)
+	card_month = Select(driver.find_element_by_id('credit_card_month'))
+	card_month.select_by_value(str(PaymentDetails.EXP_MONTH))
+	card_year = Select(driver.find_element_by_id('credit_card_year'))
+	card_year.select_by_value(str(PaymentDetails.EXP_YEAR))
+	driver.find_element_by_id('order_terms').click()
+	driver.find_element_by_id('submit_button').click()
+						</code></pre>
+
+						To run the entire code we can add at the bottom of our script the following. 
+						It runs the functions in order and passes the various parameters to the 
+						desired function.
+						<br><br>
+						<pre><code class="code-block">if __name__ == '__main__':
+	product_id = find_item_id(ProductDetails.KEYWORDS)
+	product_colour_id = find_item(product_id, ProductDetails.COLOUR, ProductDetails.SIZE)
+	get_product(product_id, product_colour_id, ProductDetails.SIZE)
+	checkout()
+						</code></pre>
+
+						<br>
+						<h4><strong>
+							Testing
+						</strong></h4>
+						When testing the bot, a Chrome instance should pop up and you should see the 
+						buying process occur.
+						<br><br>
+						<img src="imgs/7_sup_process.gif">
+
+						<br>
+						<h4><strong>
+							Improvements
+						</strong></h4>
+						This is just a basic Supreme bot, so there are loads of ways to improve it. 
+						Below are a couple ideas. Post a comment if you have any other suggestions 
+						for improvements!
+
+						<ol>
+							<li>
+								Waiting for the item to drop: Currently the bot attempts to buy the 
+								item, but if the item does currently exist, then it stops. This requires 
+								the concept of a monitor by making multiple requests to the site and 
+								parsing the site until the product is available.
+							</li>
+							<li>
+								One click Captcha: Currently the bot will hit a slow Captcha. To get 
+								a one click Captcha, you need to be logged into a Google account that 
+								has a lot of activity.
+							</li>
+						</ol>
+
+					</p>
+
+				</article>
+
+
+				<!-- Become a member -->
+				<!--
+				<div class="border p-5 bg-lightblue">
+					<div class="row justify-content-between">
+						<div class="col-md-5 mb-2 mb-md-0">
+							<h5 class="font-weight-bold secondfont">Become a member</h5>
+							Get the latest news right in your inbox. We never spam!
+						</div>
+						<div class="col-md-7">
+							<div class="row">
+								<div class="col-md-12">
+									<input type="text" class="form-control" placeholder="Enter your e-mail address">
+								</div>
+								<div class="col-md-12 mt-2">
+									<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+
+	<!-- Read Next -->
+	<!--
+	<div class="container pt-4 pb-4">
+		<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="card border-0 mb-4 box-shadow h-xl-300">
+					<div
+						style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+					</div>
+					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+						<h2 class="h4 font-weight-bold">
+							<a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+						</h2>
+						<p class="card-text">
+							Researchers have found an effective target in the brain for electrical stimulation to
+							improve mood in people suffering from depression.
+						</p>
+						<div>
+							<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="flex-md-row mb-4 box-shadow h-xl-300">
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog4.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
+									of Earth</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog5.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
+									Titicaca</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog6.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<!-- Footer -->
+	<div class="container mt-5">
+		<footer class="bg-white border-top p-3 text-muted small">
+			<div class="row align-items-center justify-content-between">
+				<div>
+					<span class="navbar-brand mr-2"><strong>Inference</strong></span> Copyright &copy;
+					<script>document.write(new Date().getFullYear())</script>
+					. All rights reserved.
+				</div>
+				<div>
+					Made by Yasser
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="../../assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/vendor/popper.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/favicon.ico">
+	<link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Inference - Curvature Scale Space</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="../../assets/css/main.css" rel="stylesheet" />
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script type="text/javascript" id="MathJax-script" async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+	</script>
+</head>
+
+<body>
+
+	<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+		<div class="container">
+			<!-- Title -->
+			<a class="navbar-brand" href="../../index.html"><strong>Inference</strong></a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+				aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Navbar menu -->
+			<div class="navbar-collapse collapse" id="navbarColor02">
+				<!-- Menu items -->
+				<ul class="navbar-nav mr-auto d-flex align-items-center">
+					<li class="nav-item">
+						<a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../pages/about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../pages/articles.html">All Articles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/yasserqureshi1">GitHub</a>
+					</li>
+				</ul>
+
+				<!-- Right menu item -->
+				<!--
+				<ul class="navbar-nav ml-auto d-flex align-items-center">
+					<li class="nav-item highlight">
+						<a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get
+							this Theme</a>
+					</li>
+				</ul>
+				-->
+			</div>
+		</div>
+	</nav>
+
+	<!-- Article Header -->
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+			<div class="h-100 tofront">
+				<div class="row justify-content-between">
+					<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+						<!-- Article topic area -->
+						<p class="text-uppercase font-weight-bold">
+							<a class="text-danger">Shapes</a>
+						</p>
+						<!-- Article Title-->
+						<h1 class="display-4 secondfont mb-3 font-weight-bold">
+							Curvature Scale Space
+						</h1>
+						<!-- Article Subtitle -->
+						<p class="mb-3">
+							Curvature scale space (CSS) is a shape descriptor for planar curves and was
+							introduced by Mokhtarian and Mackworth. One of its main uses lies in object 
+							recognition, where matching algorithms can be applied to identify shapes within
+							images.
+						</p>
+						<!-- Article date and read time -->
+						<div class="d-flex align-items-center">
+							<small class="ml-2">
+								<span class="text-muted d-block">
+									23 Dec 2021 &middot; 2 min. read
+								</span>
+							</small>
+						</div>
+					</div>
+
+					<!-- Article image -->
+					<div class="col-md-6 pr-0">
+						<img src="imgs/1_css_hand.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container pt-4 pb-4">
+		<div class="row justify-content-center">
+			<!-- Share Article -->
+			<div class="col-lg-2 pr-4 mb-4 col-md-12">
+				<div class="sticky-top text-center">
+					<div class="text-muted">
+						Share this
+					</div>
+					<div class="share d-inline-block">
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+							<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+							<a class="a2a_button_facebook"></a>
+							<a class="a2a_button_twitter"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+					</div>
+				</div>
+			</div>
+
+			<!-- Article Content -->
+			<div class="col-md-12 col-lg-8">
+				<article class="article-post">
+					<p>
+						Shape descriptors are features that describe shapes through various metrics. Within
+						this article, I will describe curvature scale space as a useful feature for applications
+						such as object recognition and trajectory analysis. It was introduced by Mokhtarian and
+						Mackworth as a representation of a curve that encompasses the following properties:
+						<ul>
+							<li>
+								Rotation invariant
+							</li>
+							<li>
+								Invariant under uniform scaling
+							</li>
+							<li>
+								Translation invariant
+							</li>
+						</ul>
+
+						Essentially, this method works by finding points of inflection on the curve at varying
+						levels smoothing. We can then represent the points of inflection using a CSS image. Let's
+						look at it a bit closer.
+						<br><br>
+						
+						Let a curve be defined expressed as two functions \(x(t)\) and \(y(t)\):
+						
+						$$C = \{ x(t), y(t) \}$$
+						
+						The curvature at a point \(P\) on the curve is given by:
+						
+						$$ \kappa = \frac{\dot x \ddot y - \ddot x \dot y}{(\dot x^2 - \dot y^2)^\frac{3}{2}} $$
+						
+						To compute the curvature at varying levels of detail (i.e. different smoothing 
+						levels), we convolve the functions \(x(t)\) and \(y(t)\) with a one-dimensional 
+						Gaussian kernel \(g(t, \sigma)\) of width \(\sigma\).
+
+						$$ g(t, \sigma) = \frac{1}{\sigma \sqrt{2\pi}} e^{-t^2 / 2\sigma^2} $$
+
+						As we increase the value of \(\sigma\), we find points of inflection and mark them
+						on a scale space image with axis \(t\) and \(\sigma\). The value of \(\sigma\) is increased
+						until no inflection points are found.
+
+						Visually, when we increase \(\sigma\), we are smoothing the curve. Below is an example
+						using the shoreline of Afria with varying levels of \(\sigma\).
+						<br><br>
+						<img src="imgs/2_css_africa.png">
+
+						An example of a CSS image of various fish shapes is displayed below. Within the image, 
+						the scale, rotation and translation invariant characteristics of the CSS feature is shown.
+						<br><br>
+						<img src="imgs/3_css_fish.png">
+						
+						Overall, curvature scale space is a useful shape descriptor that expresses the curvature
+						of a shape. The papers from Mokhtarian and Mackworth can be found below.
+					</p>
+					<blockquote>
+						Mokhtarian, F. and Mackworth, A., 1986. Scale-Based Description and Recognition of Planar Curves and Two-Dimensional Shapes. IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI-8(1), pp.34-43.
+					</blockquote>
+					<blockquote>
+						Abbasi, S., Mokhtarian, F. and Kittler, J., 1999. Curvature scale space image in shape similarity retrieval. Multimedia Systems, 7(6), pp.467-476.
+					</blockquote>
+				</article>
+
+				<!-- Become a member -->
+				<!--
+				<div class="border p-5 bg-lightblue">
+					<div class="row justify-content-between">
+						<div class="col-md-5 mb-2 mb-md-0">
+							<h5 class="font-weight-bold secondfont">Become a member</h5>
+							Get the latest news right in your inbox. We never spam!
+						</div>
+						<div class="col-md-7">
+							<div class="row">
+								<div class="col-md-12">
+									<input type="text" class="form-control" placeholder="Enter your e-mail address">
+								</div>
+								<div class="col-md-12 mt-2">
+									<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+
+	<!-- Read Next -->
+	<!--
+	<div class="container pt-4 pb-4">
+		<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="card border-0 mb-4 box-shadow h-xl-300">
+					<div
+						style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+					</div>
+					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+						<h2 class="h4 font-weight-bold">
+							<a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+						</h2>
+						<p class="card-text">
+							Researchers have found an effective target in the brain for electrical stimulation to
+							improve mood in people suffering from depression.
+						</p>
+						<div>
+							<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="flex-md-row mb-4 box-shadow h-xl-300">
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog4.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
+									of Earth</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog5.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
+									Titicaca</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog6.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<!-- Footer -->
+	<div class="container mt-5">
+		<footer class="bg-white border-top p-3 text-muted small">
+			<div class="row align-items-center justify-content-between">
+				<div>
+					<span class="navbar-brand mr-2"><strong>Inference</strong></span> Copyright &copy;
+					<script>document.write(new Date().getFullYear())</script>
+					. All rights reserved.
+				</div>
+				<div>
+					Made by Yasser
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="../../assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/vendor/popper.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>
