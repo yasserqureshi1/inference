@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/favicon.ico">
+	<link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Inference - Understanding the 'Making Bertha Drive' Paper</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="../../assets/css/main.css" rel="stylesheet" />
+	<link href="../../assets/css/article.css" rel="stylesheet" />
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script type="text/javascript" id="MathJax-script" async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+	</script>
+</head>
+
+<body>
+
+	<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+		<div class="container">
+			<!-- Title -->
+			<a class="navbar-brand" href="../../index.html"><strong>Inference</strong></a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+				aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Navbar menu -->
+			<div class="navbar-collapse collapse" id="navbarColor02">
+				<!-- Menu items -->
+				<ul class="navbar-nav mr-auto d-flex align-items-center">
+					<li class="nav-item">
+						<a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../pages/about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../../pages/articles.html">All Articles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/yasserqureshi1">GitHub</a>
+					</li>
+				</ul>
+
+				<!-- Right menu item -->
+				<!--
+				<ul class="navbar-nav ml-auto d-flex align-items-center">
+					<li class="nav-item highlight">
+						<a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get
+							this Theme</a>
+					</li>
+				</ul>
+				-->
+			</div>
+		</div>
+	</nav>
+
+	<!-- Article Header -->
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+			<div class="h-100 tofront">
+				<div class="row justify-content-between">
+					<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+						<!-- Article topic area -->
+						<p class="text-uppercase font-weight-bold">
+							<a class="text-danger">Machine Learning</a>
+						</p>
+						<!-- Article Title-->
+						<h1 class="display-4 secondfont mb-3 font-weight-bold">
+							Understanding the 'Making Bertha Drive' Paper
+						</h1>
+						<!-- Article Subtitle -->
+						<p class="mb-3">
+							Within this article, we will explore the technology that was used to enable
+							the successful fully autonomous trip of a Mercedes Benz S-Class S 500 INTELLIGENT DRIVE 
+							from Mannheim to Pforzheim, Germany - a distance of 103km.
+						</p>
+						<!-- Article date and read time -->
+						<div class="d-flex align-items-center">
+							<small class="ml-2">
+								<span class="text-muted d-block">
+									21 Feb 2021 &middot; 12 min. read
+								</span>
+							</small>
+						</div>
+					</div>
+
+					<!-- Article image -->
+					<div class="col-md-6 pr-0">
+						<img src="imgs/1_mercedes_autonomous.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container pt-4 pb-4">
+		<div class="row justify-content-center">
+			<!-- Share Article -->
+			<div class="col-lg-2 pr-4 mb-4 col-md-12">
+				<div class="sticky-top text-center">
+					<div class="text-muted">
+						Share this
+					</div>
+					<div class="share d-inline-block">
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+							<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+							<a class="a2a_button_facebook"></a>
+							<a class="a2a_button_twitter"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+					</div>
+				</div>
+			</div>
+
+			<!-- Article Content -->
+			<div class="col-md-12 col-lg-8">
+				<article class="article-post">
+					<p>
+						With the Mercedes Benz S-Class S 500 INTELLIGENT DRIVE, Mercedes-Benz became the first motor 
+						manufacturer to demonstrate the feasibility of autonomous driving on both interurban and 
+						urban routes. The route covering 103km of German land, is a historic route first travelled by
+						the motoring pioneer Bertha Benz 125 years prior. Within this article, some of the technology 
+						used to assist in this feat will be explored.
+						<br><br>
+						Generally, the car used a pre-built digital map that was created by driving along the route with 
+						various cameras and sensors, that analysed the scene. This included developing a 3D model, which 
+						helped to detect pedestrians on paths, to identify various landmarks, that was used in vehicle 
+						localisation, and to collect images on traffic lights for traffic light recognition.
+						<br><br>
+						As such, a suite of software and hardware was needed for the entire system to perform well. 
+						In particular, various stereo-cameras and radar sensors were used to sense and gather data during 
+						its drive. Computer vision algorithms, such as object segmentation, classification techniques, 
+						like neural networks, and filtering techniques, are used to perceive and understand the data 
+						that was gathered. Later stages including deciding, planning and acting will not be discussed in 
+						this report.
+						<br>
+						<h4><strong>
+							Prerequisite Knowledge
+						</strong></h4>
+						Before discussing the various aspects of the car, a number of technical topics must first be 
+						examined. This will develop the prerequisite understanding needed to fully appreciate the technical 
+						parts of the project. This section will discuss feature matching, Kalman filters and neural networks.
+						<br><br>
+						<h6><strong>
+							1. Feature Matching
+						</strong></h6>
+						The task of feature matching involves identifying points of interest and identify those same features
+						in other images or scenes. To identify the points of interest we can use a variety of algorithms including, 
+						but not limited to, the Harris Corner detector, SIFT (Scale Invariant Feature Transform) and SURF (Speeded 
+						Up Robust Feature). Once features are identified, they are then compared, at which point we can identify 
+						the similarity between the images.
+						<br><br>
+						This concept can be further described using an example. The figures below display the same scene in two 
+						different angles. To perform feature matching, we first apply some pre-processing image techniques 
+						including converting both images to grayscale and using the Harris Corner detector.
+						<br><br>
+						<div class="row">
+							<div class="col-sm-3">
+								<img src="imgs/2_harris_corner.png">
+								<figcaption class="figcap">Image displaying desk and PC scene</figcaption>
+							</div>
+							<div class="col-sm-3">
+								<img src="imgs/3_harris_corner.png">
+								<figcaption class="figcap">Image displaying desk and PC scene from a different angle</figcaption>
+							</div>
+							<div class="col-sm-3">
+								<img src="imgs/4_harris_corner.png">
+								<figcaption class="figcap">Harris Corner detector used on first figure</figcaption>
+							</div>
+							<div class="col-sm-3">
+								<img src="imgs/5_harris_corner.png">
+								<figcaption class="figcap">Final feature matching image</figcaption>
+							</div>
+						</div>
+
+						The Harris Corner detector produces a probability map for every location in the image that there is 
+						a corner feature. This is shown in the third figure, where each detected corner is displayed with a 
+						green cross. The features then need to be matched, usually using a nearest neighbour approach. In this 
+						example, the pairwise distances between features in each image is computed. Two feature vectors are said 
+						to match when the distance between them is less than a set threshold. The last figure displays the final 
+						feature matching.
+						<br><br>
+						<h6><strong>
+							Kalman Filter
+						</strong></h6>
+						A Kalman filter is an algorithm that is used to estimate the state of a system given noisy measurements. 
+						It assumes two things, linear measurement, and state-evolution functions. They are ideal for systems that 
+						are continuously changing, where the next element needs to be predicted. It estimates the state by using the 
+						previous mean vector and covariance matrix, which are updated - no other previous states are stored.
+						<br><br>
+						To fully appreciate how this works, an example will be described. Consider a problem where the position of an 
+						object, traveling at a constant speed, is to be estimated at various timeframes. Using a Kalman filter, the 
+						next position can be calculated with increasing accuracy as data is revealed. The figure below displays how a Kalman 
+						filter can predict the next position on an object. 
+						<img src="imgs/6_kalman_filter.png">
+						We first predict where the next element will by describing the mean vector, \(\mu\), and covariance matrix, \(\Sigma\) as...
+						$$ \hat \mu_t = A \mu_{t-1} + Bu_t$$
+						$$ \hat \Sigma_t = A \Sigma_{t-1} A^T + R_t $$
+
+						The Kalman filter, \(k_t\) then corrects this initial prediction...
+
+						$$ k_t = \hat \Sigma_t C^T (C \hat \Sigma_t C^T + Q)^{-1} $$
+						$$ \mu = \hat \mu_t + k_t (z_t - C \hat \mu_t) $$
+						$$ \Sigma_t = (I - k_t C) \hat \Sigma_t $$
+
+						
+						<h6><strong>
+							Neural Networks
+						</strong></h6>
+						A Neural Network is a multi-layer network of neurons that resembles a human brain. It can learn from data to identify 
+						patterns, classify data, and forecast future events. They are made up of various layers consisting of nodes and weights, 
+						where nodes are formed of from the summation of various weighted inputs and a bias that is passed through an activation 
+						function, usually a sigmoid function. This concept is illustrated in the figure below.
+						<br><br>
+						<img src="imgs/7_neural_net.png">
+						Each layer breaks down the input into various features. For instance, if the input was an image of a face, the first layer 
+						will look at small feature components such as edges. The next layer will use multiple features from the previous layer to 
+						extract a different feature, for example, an eye. This happens for subsequent layers and the output nodes will display a 
+						probability of which class that input is most likely to be.
+						<br>
+						<img style="width:300px; display: block;margin-left: auto;margin-right: auto;" src="imgs/8_neural_net.png">
+						
+						To further explain this concept, consider an example where a type of shoe is to be determined from an input image. Let's 
+						say, there are six shoes, named: Jordan 1 High, Air Force 1, Lab Boots, Louboutin's, Running Shoes and Yeezy Creams. A 
+						neural network can be trained with a number of images of each of these shoes. During training, each layer of the neural 
+						network breaks down the input images and adjusts the weights and nodes for various features that it identifies. So, when we 
+						try to classify a new image, the various features are extracted by the neural network resulting in a set of probabilities 
+						that display the likelihood that it is one of the shoes that it has been trained on.
+
+						<br><br>
+						<h4><stong>
+							Vehicle Localisation
+						</stong></h4>
+						Generally, localising a vehicle are the processes that occur for the vehicle to determine its location on a map. To do this, 
+						there are two stages: feature based localisation and lane marking-based localisation. Both use and update a detailed digital 
+						road map, that was initially created during test runs along the same Bertha Benz Route. This section will use the concepts 
+						of feature matching and Kalman filters discussed in the <i>Prerequisite Knowledge</i> section.
+						<br><br>
+						Feature based localisation is where features in the scene are compared to features that are stored on the digital map which 
+						clarify where the car is located. Here, the concept of feature matching is applied with various structures in the scene. The 
+						differences between the images are computed to give a metric on the distance the car is to everything around it, allowing it 
+						to localise itself very precisely, in some cases achieving centimetre accuracy.
+						<br><br>
+						The other technique that is employed is the use of lane marking-based localisation. This is where the lane markings that are 
+						detected in the scene are compared to the digital map. This is useful in rural areas, where there may be fewer landmarks that 
+						could be used for 'feature based localisation'. Again, feature matching is used accompanied with a Kalman filter to minimise 
+						unmatched features.
+						<br><br>
+						Both techniques are employed in parallel and are fused together in a filter framework using unscented Kalman filters. The use 
+						of a Kalman filter here, reduces latency by predicting the datapoints that may not have been fully registered at a particular time.
+
+						<br><br>
+						<h4><strong>
+							Recognising Traffic Lights
+						</strong></h4>
+						The task of recognising traffic lights was one of the most challenging exercises. One major issue was ensuring that the car 
+						does not stop every time it reaches a traffic light to fully register the traffic signal being shown. This makes it difficult for 
+						the car to first recognise a traffic light and then identify the colour shown whilst the onboard cameras are in motion. As such, 
+						a few techniques including feature matching and the use of neural networks were used.
+						<br><br>
+						The digital map that was initially developed was manually labelled with the locations of the traffic lights. This allowed the car 
+						to use feature matching whilst driving to compare the scene around it to perfectly match where the traffic light is located. When 
+						it successfully matches the features, the image of the traffic light is used as an input for the neural network.
+						<br><br>
+						A neural network was used to classify the traffic light signals. The network was trained to identify the colours of a traffic light
+						signal, whilst also rejecting false hypothesis including lights from the cars in front. Once the classification process was complete, 
+						a decision is made when the probability hits a threshold value.
+
+						<br><br>
+						<h4><strong>
+							Detecting Pedestrians
+						</strong></h4>
+						The approach that the car took to detect pedestrians, also was able to detect oncoming vehicles. It was able to identify pedestrians up 
+						to 40m in front of itself as well as oncoming vehicles up to 200m. It employed a classification system that uses its stereo-cameras to 
+						detect and recognise pedestrians in the scene. There are three main stages of the system: region-of-interest (ROI) generation, object 
+						classification and tracking. These parts used gray- level image intensity and dense stereo disparity.
+						<br><br>
+						Initially, the generation of features for classification is computed. Generating the region-of- interest involved computing the locations 
+						of where possible pedestrians could be using the 3D road profile in the digital map. The 3D road profile displayed the height above ground 
+						as well as other features that helps identify areas that may contain pedestrians.
+						<br><br>
+						Once features are generated, they are then classified. A Mixture of Experts (MoE) machine learning technique was used, which uses a neural 
+						network architecture that contains separate linear models that are trained for local regions in the input dataset. This technique was combined 
+						with linear support vector machine (SVM) classifier. This classifier tries to make a decision boundary in such a way that the separation of the 
+						two input classes is as wide as possible. This helped to reduce misclassification of pedestrians.
+						<br><br>
+						The last stage employs tracking. This uses an Extended Kalman filter with an underlying constant velocity model of dynamics. This was used to 
+						track a pedestrian's movement by predicting their path, thus allowing the car to make a decision on whether to swerve, stop, or keep driving. 
+						This was performed by analysing the footprint of the detected pedestrian as well as depth measurements using stereo cameras.
+
+						<br><br>
+						<h4><strong>
+							Further Developments in the Field
+						</strong></h4>
+						This car was tested in 2013. Since then, many developments have occurred in the field of autonomous cars. The <i>Wevolver 2020 Autonomous Vehicle 
+						Technology Report</i> describes a few differences in the hardware and software used in current autonomous car advancements. These new cars use 
+						many of the same sensors and cameras used in Bertha including stereo cameras and short/long range radar sensors. They also include LiDAR, ultrasound 
+						and other camera units. In regards to software, more research in machine learning methods have opened doors into further improve the safety 
+						of autonomous cars.
+						<br><br>
+						Geolocalisation is a hot topic with current autonomous cars. The common approach involves using satellite navigation with a Global Navigation 
+						Satellite System (GNSS). This calculates the distance of the car to at least four satellites, giving a strong indication on its location. To avoid 
+						issues, such as driving in tunnels, an Inertial Measurement Unit (IMU) is integrated. This uses gyroscopes and accelerometers to extrapolate the 
+						data available to estimate the location of the car. Here, Kalman filters could be used to perform this - however this detail is only speculation.
+						<br><br>
+						These cars also utilise a detailed map, where feature matching would be used to further localise the vehicle. This is because of the current limited 
+						abilities of AI, nevertheless, some disagree or take a different approach. For example, Wayve, a London-based start-up, only uses standard sat-nav and 
+						cameras. They are developing learning algorithms that imitate the behaviour of expert drivers using reinforcement learning.
+						<br><br>
+						More and more machine learning models are being used in autonomous cars. As described with Betha, many of these are Neural Networks. Convolutional Neural 
+						Networks are used to process image and spatial information, to extract features of interest and identify objects in the scene. Recurrent Neural Networks 
+						are also used to work with temporal information such as videos. These allow information and knowledge to persist in the network and be contextualized. 
+						Another technique that was briefly touched on is the use of Deep Reinforcement Learning. These use reward functions to give an incentive for software-defined 
+						'agents' to learn from the information around them and act accordingly, but this is still an early stage in autonomous vehicles.
+						<br><br>
+						There are many advancements in other areas of autonomous cars, namely the concept of communicating between vehicles, traffic signals and other road signals. 
+						The use of IoT will reduce the need to use many cameras and sensors to localise the vehicle and ease some of the difficulties with traffic light recognition. 
+						However, cameras and sensors will still play a vital role to detect pedestrians and ensure that other road users (such as cyclists) are kept safe.
+
+					</p>
+				</article>
+
+				<!-- Become a member -->
+				<!--
+				<div class="border p-5 bg-lightblue">
+					<div class="row justify-content-between">
+						<div class="col-md-5 mb-2 mb-md-0">
+							<h5 class="font-weight-bold secondfont">Become a member</h5>
+							Get the latest news right in your inbox. We never spam!
+						</div>
+						<div class="col-md-7">
+							<div class="row">
+								<div class="col-md-12">
+									<input type="text" class="form-control" placeholder="Enter your e-mail address">
+								</div>
+								<div class="col-md-12 mt-2">
+									<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+
+	<!-- Read Next -->
+	<!--
+	<div class="container pt-4 pb-4">
+		<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="card border-0 mb-4 box-shadow h-xl-300">
+					<div
+						style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+					</div>
+					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+						<h2 class="h4 font-weight-bold">
+							<a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+						</h2>
+						<p class="card-text">
+							Researchers have found an effective target in the brain for electrical stimulation to
+							improve mood in people suffering from depression.
+						</p>
+						<div>
+							<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="flex-md-row mb-4 box-shadow h-xl-300">
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog4.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
+									of Earth</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog5.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
+									Titicaca</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+					<div class="mb-3 d-flex align-items-center">
+						<img height="80" src="./assets/img/demo/blog6.jpg">
+						<div class="pl-3">
+							<h2 class="mb-2 h6 font-weight-bold">
+								<a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
+							</h2>
+							<div class="card-text text-muted small">
+								Jake Bittle in LOVE/HATE
+							</div>
+							<small class="text-muted">Dec 12 · 5 min read</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<!-- Footer -->
+	<div class="container mt-5">
+		<footer class="bg-white border-top p-3 text-muted small">
+			<div class="row align-items-center justify-content-between">
+				<div>
+					<span class="navbar-brand mr-2"><strong>Inference</strong></span> Copyright &copy;
+					<script>document.write(new Date().getFullYear())</script>
+					. All rights reserved.
+				</div>
+				<div>
+					Made by Yasser
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="../../assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/vendor/popper.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>
