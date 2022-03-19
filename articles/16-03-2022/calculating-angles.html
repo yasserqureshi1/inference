@@ -161,7 +161,7 @@
                         <br>
                         Using forward differences computes the differences between the current data point and 
                         the future data point. If the data values are spaced with a step size \(h\), then the 
-                        error has the order \(O(h)\).
+                        error has the order \(O(h)\). The angle here is measured from the x axis.
                     </p>
 
                     <h4>
@@ -173,7 +173,7 @@
                         <br>
                         The backward difference theorem calculates angles by taking the change in current and 
                         past values. Similar to the Forward Difference, if the step size is \(h\), then the error
-                        has the order \(O(h)\).
+                        has the order \(O(h)\). The angle here is measured from the x axis.
                     </p>
 
                     <h4>
@@ -185,7 +185,7 @@
                         <br>
                         The central difference makes an linear interpolation between the past data value and the 
                         future data value. This is known as a three-point difference and has an error of order 
-                        \(O(h^2)\).
+                        \(O(h^2)\). The angle here is measured from the x axis.
                     </p>
 
                     <h4>
@@ -207,10 +207,32 @@
                         
                         $$ \theta = arccos\left(\frac{v_{1} \cdot v_{2}}{\sqrt{(v_{1} \cdot v_{1})(v_{2} \cdot v_{2})}}\right) $$
                         <br>
-                        This method uses vector algebra to calculate the angle change. Recall the following formulas:
+                        This method uses vector algebra to calculate the angle change. As such it is not measured around any 
+						angle, but instead is the change in angle between positions. The formulas below are fundamental vector
+						algebra equations that were used to develop this equation.
                         $$ a \cdot b = ||a|| \;||b|| \; cos(\theta) $$
                         $$ ||a|| = \sqrt{a \cdot a} $$
                     </p>
+
+					<h4>
+						<bold>Concluding Remarks</bold>
+					</h4>
+					<p>
+						Within this article, I've introduced what finite differences are in the context of calculating angles for
+						mosquito flight. You probably realised that the forward and backward methods overall calculate the same
+						angles when computed over a whole track - so I didn't consider the backward difference for my PhD project.
+						Each method has their merits as they call calculate a slightly different angle.
+					</p>
+					<p>
+						If you're interested in reading more about finite differences, I've left below some interesting articles
+						to read:
+					</p>
+					<blockquote>
+						Paul Wilmott; Sam Howison; Jeff Dewynne (1995). The Mathematics of Financial Derivatives: A Student Introduction. Cambridge University Press. p. 137. ISBN 978-0-521-49789-3.
+					</blockquote>
+					<blockquote>
+						Richardson, C. H. (1954): An Introduction to the Calculus of Finite Differences (Van Nostrand (1954)
+					</blockquote>
 
 				</article>
 
