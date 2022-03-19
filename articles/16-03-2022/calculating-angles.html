@@ -133,7 +133,8 @@
                         set the scene...
 					</p>
                     <p>
-                        Say we have a single mosquito trajectory in 2D. How can we calculate the direction
+                        Say we have a single mosquito track in 2D (i.e. we have the \(x\) and \(y\) positions
+						at different times within its flight). How can we calculate the direction
                         of flight (or angle at which the mosuqito is flying)? This problem is one which 
                         requires us to take the derivative of a line and calculate its inverse tangent. So 
                         this then becomes a issue of dervatives.
@@ -161,7 +162,9 @@
                         <br>
                         Using forward differences computes the differences between the current data point and 
                         the future data point. If the data values are spaced with a step size \(h\), then the 
-                        error has the order \(O(h)\). The angle here is measured from the x axis.
+                        error has the order \(O(h)\). The angle here is measured from the \(x\) axis. Generally, 
+						this method is useful when solving ODEs by single-step predictor-corrector methods (e.g.
+						Euler method).
                     </p>
 
                     <h4>
@@ -173,7 +176,9 @@
                         <br>
                         The backward difference theorem calculates angles by taking the change in current and 
                         past values. Similar to the Forward Difference, if the step size is \(h\), then the error
-                        has the order \(O(h)\). The angle here is measured from the x axis.
+                        has the order \(O(h)\). The angle here is also measured from the \(x\) axis. With this method,
+						it is most useful when future data is not available yet and where future values may depend on
+						the derivatives approximated from past values (e.g. in control problems).
                     </p>
 
                     <h4>
@@ -185,7 +190,9 @@
                         <br>
                         The central difference makes an linear interpolation between the past data value and the 
                         future data value. This is known as a three-point difference and has an error of order 
-                        \(O(h^2)\). The angle here is measured from the x axis.
+                        \(O(h^2)\). This method has a lower error and a more accurate approximation than the 
+						Forward and Backward methods. The angle here is also measured from the \(x\) axis. This method
+						is useful if you have both past and future data available and is useful in solving PDEs. 
                     </p>
 
                     <h4>
@@ -208,7 +215,7 @@
                         $$ \theta = arccos\left(\frac{v_{1} \cdot v_{2}}{\sqrt{(v_{1} \cdot v_{1})(v_{2} \cdot v_{2})}}\right) $$
                         <br>
                         This method uses vector algebra to calculate the angle change. As such it is not measured around any 
-						angle, but instead is the change in angle between positions. The formulas below are fundamental vector
+						axis, but instead is the change in angle between positions. The formulas below are fundamental vector
 						algebra equations that were used to develop this equation.
                         $$ a \cdot b = ||a|| \;||b|| \; cos(\theta) $$
                         $$ ||a|| = \sqrt{a \cdot a} $$
@@ -221,7 +228,7 @@
 						Within this article, I've introduced what finite differences are in the context of calculating angles for
 						mosquito flight. You probably realised that the forward and backward methods overall calculate the same
 						angles when computed over a whole track - so I didn't consider the backward difference for my PhD project.
-						Each method has their merits as they call calculate a slightly different angle.
+						Nevertheless for different problems, each method has its merits. 
 					</p>
 					<p>
 						If you're interested in reading more about finite differences, I've left below some interesting articles
